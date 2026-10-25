@@ -23,8 +23,8 @@ WITH RECURSIVE CategoryHierarchy AS (
 )
 SELECT 
     SUBSTR(code_name.memo, 
-           INSTR(code_name.memo, '|Timeline： ') + LENGTH('|Timeline： '), 
-           INSTR(SUBSTR(code_name.memo, INSTR(code_name.memo, '|Timeline： ') + LENGTH('|Timeline： ')), '|') - 1) AS "Timeline",
+           INSTR(code_name.memo, '|Timeline: ') + LENGTH('|Timeline: '), 
+           INSTR(SUBSTR(code_name.memo, INSTR(code_name.memo, '|Timeline: ') + LENGTH('|Timeline: ')), '|') - 1) AS "Timeline",
     code_name.name AS "Code Name",
     MIN(CH.hierarchy) AS "Category",
     GROUP_CONCAT(
